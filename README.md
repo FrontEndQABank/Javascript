@@ -1,9 +1,4 @@
-# Javascript 기술 면접 질문
-
-<br>
-
-## 🙋‍♀️Javascript Q & A
-
+# 🙋‍Javascript 기술 면접 질문
 💥이모티콘이 있는 질문은 면접에서 받았던 질문입니다.
 
 <br>
