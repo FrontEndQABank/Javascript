@@ -40,13 +40,13 @@
 <details>
 <summary>const 키워드는 어떤 특징이 있나요?💥</summary>
 <div markdown="1">
-1. 선언과 초기화
-const 키워드로 선언한 변수는 선언과 동시에 초기화가 이루어져야 합니다.
-2. 재할당 금지
-var 또는 let 키워드로 선언한 변수는 재할당이 자유로우나 const 키워드로 선언한 변수는 재할당이 안됩니다.
-3. 상수(변하지 않는 변수)
-const로 선언한 변수에 원시 값을 할당한 경우 변수 값을 변경할 수 없습니다.
-원시 값은 변경 불가능한 값이기 때문입니다. 이러한 특징을 사용하여 상수로 표현합니다.
+1. 선언과 초기화<br>
+const 키워드로 선언한 변수는 선언과 동시에 초기화가 이루어져야 합니다.<br><br>
+2. 재할당 금지<br>
+var 또는 let 키워드로 선언한 변수는 재할당이 자유로우나 const 키워드로 선언한 변수는 재할당이 안됩니다.<br><br>
+3. 상수(변하지 않는 변수)<br>
+const로 선언한 변수에 원시 값을 할당한 경우 변수 값을 변경할 수 없습니다.<br>
+원시 값은 변경 불가능한 값이기 때문입니다. 이러한 특징을 사용하여 상수로 표현합니다.<br>
 </div>
 </details>
 
@@ -187,7 +187,7 @@ HTML의 레이아웃이 변경될 경우 레이아웃 단계에서 렌더트리�
 <details>
 <summary><script></script> 태그를 <body></body> 태그 밑에 둬야하는 이유가 있을까요? </summary>
 <div markdown="1">
-답변을 HTML 파서는 <script> 태그를 만나면 파싱을 멈추고 스크립트 파일을 읽기 때문에 HTML 코드 중간에 <script> 태그가 있으면 무거운 JavaScript 코드를 불러오고 실행하느라 DOM 생성이 지연됩니다.
+HTML 파서는 <script> 태그를 만나면 파싱을 멈추고 스크립트 파일을 읽기 때문에 HTML 코드 중간에 <script> 태그가 있으면 무거운 JavaScript 코드를 불러오고 실행하느라 DOM 생성이 지연됩니다.
 DOM 생성이 지연되면 브라우저 렌더링에 방해가 되므로 미완성 화면이 오래 유지될 수 있습니다.
 따라서 <script> 태그는 HTML 코드를 모두 작성 후 <body> 태그 닫기 직전에 작성하는 것이 좋습니다.
 </div>
@@ -232,14 +232,57 @@ DOM 생성이 지연되면 브라우저 렌더링에 방해가 되므로 미완�
 <details>
 <summary>이벤트 위임(delegation)에 대해서 알고있나요?💥</summary>
 <div markdown="1">
-답변을 적어주세요
+여러 개의 이벤트 리스너를 등록하지 않고 상위 요소에 하나의 이벤트 리스너만 등록하는 것을 이벤트 위임이라고 합니다. 여러개의 자식 엘리먼트 이벤트 관리하기,  동적 엘리먼트에 대한 이벤트 관리하기일 때 사용할 수 있습니다.
+ <br> <br>
+  <details>
+  <summary>보충 설명</summary>
+
+```jsx
+안 좋은 예시
+<ul>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+<li>6</li>
+</ul>
+
+<script>
+      const li = document.querySelectorAll("li");
+      li.forEach((li) => {
+        li.addEventListener("click", () => {
+          li.classList.add("selected");
+        });
+      });
+ </script>
+```
+<li>요소에 개별적으로 이벤트 리스너를 등록하고 있습니다. 이는 동일한 동작을 수행하는 요소에게 이벤트 리스너를 여러 번 중복해서 등록하는 것입니다. 여러개의 이벤트 리스너를 등록하는 경우, 각 요소에 대해 별도의 리스너를 등록하므로 메모리 사용량이 증가하고 많은 요소에 대한 이벤트 처리가 필요할 때 성능 저하가 일어날 수 있습니다. 또한 요소가 동적으로 추가 또는 제거되는 경우, 각각의 이벤트 리스너를 새로 등록하거나 제거해야하는 번거로움이 발생 할 수 있습니다. 
+
+
+``` jsx
+이벤트 위임을 사용한 예
+<script>
+      const ul = document.querySelector("ul");
+      ul.addEventListener("click", (event) => {
+        if (event.target.tagName == "LI") {
+          event.target.classList.add("selected");
+        }
+      });
+</script>
+```
+이벤트 위임을 사용한 예시는 상위 요소에 하나의 이벤트 리스너를 등록하여 모든 자식 요소의 이벤트를 처리합니다. 이벤트 위임을 사용하면 동적으로 생성되는 요소에 대해서도 이벤트 처리를 보장할 수 있으며, 이벤트 리스너의 중복 등록 문제를 피할 수 있습니다.
+<div markdown="1">
+</div>
+  </details>
+  
 </div>
 </details>
 
 <details>
 <summary>e.preventDefault에 대해 알고 있나요?</summary>
 <div markdown="1">
-답변을 적어주세요
+e.preventDefault()는 메서드는 브라우저의 기본 동작을 중단시키는 역할을 합니다. 폼 제출 시 페이지를 새로고침하는 기본 동작을 중단시킵니다. 이를 통해 JavaScript 코드에서 추가적인 처리를 수행하거나 AJAX를 통해 비동기적으로 데이터를 전송할 수 있습니다.
 </div>
 </details>
 
@@ -264,7 +307,78 @@ DOM 생성이 지연되면 브라우저 렌더링에 방해가 되므로 미완�
 <details>
 <summary>자바스크립트에서 객체를 생성하는 방법은 어떤 것들이 있나요? </summary>
 <div markdown="1">
-답변을 적어주세요
+프로토타입 기밥 객체 지향언어라서 다양한 객체 생성 방법을 지원합니다.<br>
+- 객체 리터럴 `const obj = {}`<br>
+- 생성자 함수<br>
+- 클래스(ES6)<br>
+- Object.create() 메서드<br>
+
+  <br>
+  <details>
+  <summary>보충 설명</summary>
+<div markdown="1">
+  - 객체 리터럴 예시<br>
+  
+  ```jsx
+const person = {
+name: "John",
+age: 30,
+occupation: "Developer"
+};
+  ```
+<br>
+  - 생성자 함수 예시<br>
+  
+  ```jsx
+//1번
+function Person(name, age, occupation) {
+  this.name = name;
+  this.age = age;
+  this.occupation = occupation;
+}
+
+const person = new Person("John", 30, "Developer");
+
+//2번
+var day = new Date(); // new 연산자를 사용하여 Date 타입의 객체를 생성함.
+document.write("올해는 " + day.getFullYear() + "년입니다.");
+```
+<br>
+- 클래스 예시<br>
+  
+ ``` jsx
+class Person {
+  constructor(name, age, occupation) {
+    this.name = name;
+    this.age = age;
+    this.occupation = occupation;
+  }
+}
+
+const person = new Person("John", 30, "Developer");
+  ```
+<br>
+- Object.create() 메서드 예시<br>
+  
+  ```jsx
+const personPrototype = {
+  sayHello: function() {
+    console.log("Hello!");
+  }
+};
+
+const person = Object.create(personPrototype);
+person.name = "John";
+person.age = 30;
+person.occupation = "Developer";
+  ```
+
+
+
+</div>
+  </details>
+
+  
 </div>
 </details>
 
@@ -282,14 +396,14 @@ DOM 생성이 지연되면 브라우저 렌더링에 방해가 되므로 미완�
 <details>
 <summary>값에 의한 전달이 뭔가요?💥</summary>
 <div markdown="1">
-답변을 적어주세요
+값에 의한 전달은 원시 타입 메모리의 복사 방법입니다. 메모리에 저장된 값 100을 복사해서 다른 메모리 주소에 100(실제로는 2진수형태)을 저장하는 것을 말합니다.
 </div>
 </details>
 
 <details>
 <summary>참조에 의한 전달이 뭔가요?💥</summary>
 <div markdown="1">
-답변을 적어주세요
+참조에 의한 전달은 객체 타입에서 복사하는 방법입니다. 메모리에 저장된 값이 아닌 100이 저장되어있는 메모리 주소를 복사해 다른 메모리에 저장되는 방식입니다.
 </div>
 </details>
 
@@ -325,7 +439,7 @@ DOM 생성이 지연되면 브라우저 렌더링에 방해가 되므로 미완�
 <details>
 <summary>스코프가 뭔가요?💥</summary>
 <div markdown="1">
-답변을 적어주세요
+스코프에는 전역스코프와, 지역스코프가 있습니다. 전역 스코프(Global Scope)는 말 그대로 전역에 선언되어있어 어느 곳에서든지 해당 변수에 접근할 수 있다는 의미이며 지역 스코프(Local Scope)는 해당 지역에서만 접근할 수 있어 지역을 벗어난 곳에선 접근할 수 없다는 의미입니다. 지역스코프의 예로 함수스코프가 있습니다.
 </div>
 </details>
 
@@ -364,7 +478,21 @@ DOM 생성이 지연되면 브라우저 렌더링에 방해가 되므로 미완�
 <details>
 <summary>생성자 함수가 객체(인스턴스)를 생성하는 과정에 대해 간략하게 설명해줄 수 있나요?</summary>
 <div markdown="1">
-답변을 적어주세요
+  
+```jsx
+//1.생성자 함수 선언
+function User(name) {
+// this = { }  3. 빈 객체가 암시적으로 만들어짐
+
+//4. 새로운 프로퍼티를 this에 추가함
+[this.name](http://this.name/) = name;
+this.isAdmin = false;
+
+// return this; 5. this가 암시적으로 반환됨
+}
+
+let user = new User("쿠마") //2.인스턴스 생성
+```
 </div>
 </details>
 
