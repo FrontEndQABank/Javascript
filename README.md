@@ -1,4 +1,5 @@
 # 🙋‍Javascript 기술 면접 질문
+
 💥이모티콘이 있는 질문은 면접에서 받았던 질문입니다.
 
 <br>
@@ -185,11 +186,12 @@ HTML의 레이아웃이 변경될 경우 레이아웃 단계에서 렌더트리�
 </details>
 
 <details>
-<summary><script></script> 태그를 <body></body> 태그 밑에 둬야하는 이유가 있을까요? </summary>
+<summary>
+<script></script> 태그를 <body></body> 태그 밑에 둬야하는 이유가 있을까요? </summary>
 <div markdown="1">
-HTML 파서는 <script> 태그를 만나면 파싱을 멈추고 스크립트 파일을 읽기 때문에 HTML 코드 중간에 <script> 태그가 있으면 무거운 JavaScript 코드를 불러오고 실행하느라 DOM 생성이 지연됩니다.
+HTML 파서는 script 태그를 만나면 파싱을 멈추고 스크립트 파일을 읽기 때문에 HTML 코드 중간에 script 태그가 있으면 무거운 JavaScript 코드를 불러오고 실행하느라 DOM 생성이 지연됩니다.
 DOM 생성이 지연되면 브라우저 렌더링에 방해가 되므로 미완성 화면이 오래 유지될 수 있습니다.
-따라서 <script> 태그는 HTML 코드를 모두 작성 후 <body> 태그 닫기 직전에 작성하는 것이 좋습니다.
+따라서 script 태그는 HTML 코드를 모두 작성 후 body 태그 닫기 직전에 작성하는 것이 좋습니다.
 </div>
 </details>
 
@@ -238,14 +240,14 @@ DOM 생성이 지연되면 브라우저 렌더링에 방해가 되므로 미완�
   <summary>보충 설명</summary>
 
 ```jsx
-안 좋은 예시
+이벤트위임을 사용하기 전
 <ul>
-<li>1</li>
-<li>2</li>
-<li>3</li>
-<li>4</li>
-<li>5</li>
-<li>6</li>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
 </ul>
 
 <script>
@@ -255,23 +257,23 @@ DOM 생성이 지연되면 브라우저 렌더링에 방해가 되므로 미완�
           li.classList.add("selected");
         });
       });
- </script>
+</script>
 ```
-<li>요소에 개별적으로 이벤트 리스너를 등록하고 있습니다. 이는 동일한 동작을 수행하는 요소에게 이벤트 리스너를 여러 번 중복해서 등록하는 것입니다. 여러개의 이벤트 리스너를 등록하는 경우, 각 요소에 대해 별도의 리스너를 등록하므로 메모리 사용량이 증가하고 많은 요소에 대한 이벤트 처리가 필요할 때 성능 저하가 일어날 수 있습니다. 또한 요소가 동적으로 추가 또는 제거되는 경우, 각각의 이벤트 리스너를 새로 등록하거나 제거해야하는 번거로움이 발생 할 수 있습니다. 
 
+요소에 개별적으로 이벤트 리스너를 등록하고 있습니다. 이는 동일한 동작을 수행하는 요소에게 이벤트 리스너를 여러 번 중복해서 등록하는 것입니다. 여러개의 이벤트 리스너를 등록하는 경우, 각 요소에 대해 별도의 리스너를 등록하므로 메모리 사용량이 증가하고 많은 요소에 대한 이벤트 처리가 필요할 때 성능 저하가 일어날 수 있습니다. 또한 요소가 동적으로 추가 또는 제거되는 경우, 각각의 이벤트 리스너를 새로 등록하거나 제거해야하는 번거로움이 발생 할 수 있습니다.
 
-``` jsx
+```jsx
 이벤트 위임을 사용한 예
-<script>
       const ul = document.querySelector("ul");
       ul.addEventListener("click", (event) => {
         if (event.target.tagName == "LI") {
           event.target.classList.add("selected");
         }
       });
-</script>
 ```
+
 이벤트 위임을 사용한 예시는 상위 요소에 하나의 이벤트 리스너를 등록하여 모든 자식 요소의 이벤트를 처리합니다. 이벤트 위임을 사용하면 동적으로 생성되는 요소에 대해서도 이벤트 처리를 보장할 수 있으며, 이벤트 리스너의 중복 등록 문제를 피할 수 있습니다.
+
 <div markdown="1">
 </div>
   </details>
@@ -342,10 +344,11 @@ const person = new Person("John", 30, "Developer");
 //2번
 var day = new Date(); // new 연산자를 사용하여 Date 타입의 객체를 생성함.
 document.write("올해는 " + day.getFullYear() + "년입니다.");
-```
+
+````
 <br>
 - 클래스 예시<br>
-  
+
  ``` jsx
 class Person {
   constructor(name, age, occupation) {
@@ -356,7 +359,8 @@ class Person {
 }
 
 const person = new Person("John", 30, "Developer");
-  ```
+````
+
 <br>
 - Object.create() 메서드 예시<br>
   
@@ -371,14 +375,15 @@ const person = Object.create(personPrototype);
 person.name = "John";
 person.age = 30;
 person.occupation = "Developer";
-  ```
+
+````
 
 
 
 </div>
-  </details>
+</details>
 
-  
+
 </div>
 </details>
 
@@ -446,7 +451,7 @@ person.occupation = "Developer";
 <details>
 <summary>스코프에는 어떤 종류가 있죠?💥</summary>
 <div markdown="1">
-답변을 적어주세요
+스코프에는 전역스코프와, 지역스코프가 있습니다. 전역 스코프(Global Scope)는 말 그대로 전역에 선언되어있어 어느 곳에서든지 해당 변수에 접근할 수 있다는 의미이며 지역 스코프(Local Scope)는 해당 지역에서만 접근할 수 있어 지역을 벗어난 곳에선 접근할 수 없다는 의미입니다. 지역스코프의 예로 함수스코프가 있습니다.
 </div>
 </details>
 
@@ -478,7 +483,7 @@ person.occupation = "Developer";
 <details>
 <summary>생성자 함수가 객체(인스턴스)를 생성하는 과정에 대해 간략하게 설명해줄 수 있나요?</summary>
 <div markdown="1">
-  
+
 ```jsx
 //1.생성자 함수 선언
 function User(name) {
@@ -492,7 +497,8 @@ this.isAdmin = false;
 }
 
 let user = new User("쿠마") //2.인스턴스 생성
-```
+````
+
 </div>
 </details>
 
@@ -510,7 +516,10 @@ let user = new User("쿠마") //2.인스턴스 생성
 <details>
 <summary>자바스크립트에서 함수가 일급 객체라면, 일급 객체로 뭘 할 수 있나요?</summary>
 <div markdown="1">
-답변을 적어주세요
+1. 변수에 할당할 수 있습니다: 함수는 변수에 할당되어 저장될 수 있습니다. 변수를 통해 함수를 참조하고 호출할 수 있습니다.<br><br>
+2. 매개변수로 전달할 수 있습니다: 함수는 다른 함수의 매개변수로 전달될 수 있습니다. 이를 통해 함수를 콜백으로 사용하거나, 동적으로 함수를 생성하고 조작할 수 있습니다.<br><br>
+3. 반환값으로 사용할 수 있습니다: 함수는 다른 함수의 반환값으로 사용될 수 있습니다. 이를 통해 함수가 다른 함수에 필요한 동작을 정의하고 반환하거나, 함수를 조합하여 더 복잡한 동작을 구성할 수 있습니다.<br><br>
+이러한 특징을 통해 함수를 값처럼 다룰 수 있고, 함수를 조합하고 활용하여 유연하고 강력한 동작을 구현할 수 있습니다. 함수형 프로그래밍 패러다임에서는 이러한 특징을 기반으로 데이터와 동작을 분리하여 코드의 재사용성과 가독성을 높이는 등의 장점을 제공합니다.
 </div>
 </details>
 
@@ -535,7 +544,7 @@ let user = new User("쿠마") //2.인스턴스 생성
 <details>
 <summary>객체지향 프로그래밍은 무엇을 의미하나요?</summary>
 <div markdown="1">
-답변을 적어주세요
+객체지향 프로그래밍은 프로그램을 작은 독립적인 객체로 나누고, 이들을 상호작용시켜 큰 프로그램을 구축하는 개발 방법입니다. 레고 블록의 조립과 같이 필요한 기능을 수행하는 객체들을 조합하여 프로그램을 구성합니다. 객체들은 데이터와 그를 다루는 방법(메서드)을 포함하며, 이들은 상호작용하면서 프로그램이 실행됩니다. 객체지향 프로그래밍은 코드의 재사용성과 유지 보수의 편의성을 높여줍니다.
 </div>
 </details>
 
@@ -560,7 +569,7 @@ let user = new User("쿠마") //2.인스턴스 생성
 <details>
 <summary>strict mode가 뭔가요? </summary>
 <div markdown="1">
-답변을 적어주세요
+오타나 문법 지식의 미비로 인한 실수를 줄여 안정적인 코드를 생산하기 위해 ES5에 추가된 모드입니다.
 </div>
 </details>
 
@@ -578,7 +587,9 @@ let user = new User("쿠마") //2.인스턴스 생성
 <details>
 <summary>빌트인 객체가 뭔가요?</summary>
 <div markdown="1">
-답변을 적어주세요
+개발자가 모든 기능을 구현하지 않고, 편하게 개발할 수 있도록 자바스크립트에서 기본적으로 제공하는 객체입니다.
+
+Object, String, Number, Boolean, Symbol, Date, Math, RegExp, Array, Map/Set, WeakMap/WeakSet, Function, Promise, Reflect, Proxy, JSON, Error 등 40여개 표준 빌트인 객체가 있습니다.
 </div>
 </details>
 
