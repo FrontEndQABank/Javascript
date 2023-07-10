@@ -120,14 +120,14 @@ turthy 값은 참으로 평가되는 값으로 true, 빈배열, 빈객체, 1 등
 <details>
 <summary>배열의 메서드는 어떤 종류가 있나요?</summary>
 <div markdown="1">
-답변을 적어주세요
+원본 배열을 직접 변경하는 push, pop, unshift, shift, splice, join, reverse, fill 등의 메소드와 새로운 배열을 생성하는 concat, slice, map, filter 등의 메소드가 있습니다.
 </div>
 </details>
 
 <details>
 <summary>고차 함수에 대해서 아나요?</summary>
 <div markdown="1">
-답변을 적어주세요
+고차함수란 함수를 인수로 전달받거나(콜백함수) 함수를 반환하는 함수를 말합니다. sort, forEach, map, filter, reduce, some, every, find 등이 해당합니다.
 </div>
 </details>
 
@@ -197,19 +197,20 @@ DOM 생성이 지연되면 브라우저 렌더링에 방해가 되므로 미완�
 
 <br>
 
-> 브라우저 렌더링 과정
+> DOM
 
 <details>
 <summary>DOM이 뭔가요?</summary>
 <div markdown="1">
-답변을 적어주세요
+DOM은 HTML문서의 계층적 구조와 정보를 표현하며 이를 제어할 수 있는 API, 즉 프로퍼티와 메서드를 제공하는 트리 자료구조입니다.
 </div>
 </details>
 
 <details>
 <summary>DOM을 구성하는 건 뭐가 있나요? </summary>
 <div markdown="1">
-답변을 적어주세요
+HTML 요소는 렌더링 엔진에 의해 파싱되어, DOM을 구성하는 요소 노드 객체로 변환됩니다. 이때 HTML 요소 어트리뷰트는 어트리뷰트 노드로, HTML 요소의 텍스트 콘텐츠는 텍스트 노드로 변환됩니다.
+(문서 노드, 요소 노드, 어트리뷰트 노드, 텍스트 노드 등)
 </div>
 </details>
 
@@ -227,7 +228,11 @@ DOM 생성이 지연되면 브라우저 렌더링에 방해가 되므로 미완�
 <details>
 <summary>이벤트 전파(propagation)에 대해서 알고 있나요?💥</summary>
 <div markdown="1">
-답변을 적어주세요
+DOM 트리 상에 존재하는 모든 DOM 요소 노드에서 발생한 이벤트는 DOM 트리를 통해 전파됩니다.
+이벤트가 전파되는 방향에 따라 3단계로 구분합니다.
+캡처링 단계는 상위 요소에서 하위 요소 방향으로 전파되는 것,
+타깃 단계는 이벤트가 이벤트 타깃에 도달하는 것,
+버블링 단계는 하위 요소에 상위 요소 방향으로 전파되는 것입니다.
 </div>
 </details>
 
@@ -394,7 +399,8 @@ person.occupation = "Developer";
 <details>
 <summary>동적 타이핑을 지원하는 자바스크립트에서 데이터의 타입을 크게 2개로 나누는 이유가 있을까요?</summary>
 <div markdown="1">
-답변을 적어주세요
+값은 메모리에 저장하고 참조할 수 있어야합니다. 메모리에 값을 저장하려면 확보해야 할 메모리 공간의 크기를 먼저 결정해야 합니다. 
+첫째, 값을 저장할 때 확보할 메모리 공간의 크기를 결정하기 위해. 둘째, 값을 참조할 때 한번에 읽어 들여야 할 메모리 공간의 크기를 결정하기 위해. 셋째, 메모리에서 읽어 들인 2진수를 어떻게 해석할지 결정하기 위해.
 </div>
 </details>
 
@@ -419,14 +425,17 @@ person.occupation = "Developer";
 <details>
 <summary>자바스크립트에서 함수를 정의하는 방법은 몇가지가 있나요?</summary>
 <div markdown="1">
-답변을 적어주세요
+JavaScript에서 함수 정의하는 방식에는 함수 선언문, 함수 표현식, function 생성자 함수, 화살표함수(ES6) 등이 있습니다.
 </div>
 </details>
 
 <details>
 <summary>함수 선언문과 함수 표현식은 어떤 차이가 있나요? </summary>
 <div markdown="1">
-답변을 적어주세요
+함수 선언문은 정의한 함수를 선언문 이전에 호출하면 함수 호이스팅에 의해 호출이 가능합니다. (undefined 출력)
+var 키워드처럼 함수 스코프를 가져서 함수 안에서 선언된 함수는 밖에서 호출이 불가하고 if문과 같은 다른 코드 블록 안에서 선언된 함수는 전역처럼 접근 가능합니다.
+  
+함수 표현식은 함수 선언을 값처럼 사용하는 방식입니다. 함수 선언문과 달리 함수 표현식은 선언 이전에 접근이 불가하고 할당된 변수에 따라 스코프가 결정됩니다.
 </div>
 </details>
 
@@ -458,7 +467,7 @@ person.occupation = "Developer";
 <details>
 <summary>렉시컬 스코프를 아나요? 안다면 렉시컬 스코프는 무엇을 의미하나요?💥</summary>
 <div markdown="1">
-답변을 적어주세요
+렉시컬 스코프란 함수를 어디서 정의했는지에 따라 함수의 상위 스코프를 결정하는 것을 말합니다. 즉, 함수의 상위 스코프는 항상 자신이 정의된 스코프가 되는 것입니다. JavaScript가 렉시컬 스코프를 따릅니다.
 </div>
 </details>
 
@@ -476,7 +485,7 @@ person.occupation = "Developer";
 <details>
 <summary>객체 리터럴로 만들 때와는 무슨 차이가 있죠? 왜 생성자 함수를 사용하나요?</summary>
 <div markdown="1">
-답변을 적어주세요
+생성자 함수 통해 객체를 생성하면 마치 객체를 생성하기 위한 템플릿처럼 생성자 함수를 사용하여 프로퍼티 구조가 동일한 객체 여러개를 간편하게 생성할 수 있습니다.
 </div>
 </details>
 
@@ -509,7 +518,11 @@ let user = new User("쿠마") //2.인스턴스 생성
 <details>
 <summary>일급 객체가 뭔가요?</summary>
 <div markdown="1">
-답변을 적어주세요
+일급 객체의 특징으로는
+첫째, 무명의 리터럴로 생성할 수 있습니다.
+둘째, 변수나 자료구조(배열,객체)에 저장할 수 있습니다.
+셋째, 함수의 매개변수에 전달할 수 있습니다. (콜백함수)
+넷째, 함수의 반환 값으로 사용할 수 있습니다. (고차함수)
 </div>
 </details>
 
@@ -533,7 +546,7 @@ let user = new User("쿠마") //2.인스턴스 생성
 <details>
 <summary>순수 함수가 뭔가요? 일반 함수와는 어떤 차이가 있죠?</summary>
 <div markdown="1">
-답변을 적어주세요
+순수 함수는 어떤 외부 상태에 의존하지도 않고, 변경하지도 않는, 즉 부수 효과가 없는 함수를 말합니다. 일반 함수는 외부 상태를 변경하는, 즉 부수 효과가 있는 함수를 말합니다.
 </div>
 </details>
 
@@ -544,14 +557,14 @@ let user = new User("쿠마") //2.인스턴스 생성
 <details>
 <summary>객체지향 프로그래밍은 무엇을 의미하나요?</summary>
 <div markdown="1">
-객체지향 프로그래밍은 프로그램을 작은 독립적인 객체로 나누고, 이들을 상호작용시켜 큰 프로그램을 구축하는 개발 방법입니다. 레고 블록의 조립과 같이 필요한 기능을 수행하는 객체들을 조합하여 프로그램을 구성합니다. 객체들은 데이터와 그를 다루는 방법(메서드)을 포함하며, 이들은 상호작용하면서 프로그램이 실행됩니다. 객체지향 프로그래밍은 코드의 재사용성과 유지 보수의 편의성을 높여줍니다.
+답변을 적어주세요
 </div>
 </details>
 
 <details>
 <summary>객체지향 프로그래밍의 특징에 대해 말해볼 수 있나요?</summary>
 <div markdown="1">
-답변을 적어주세요
+객체지향 프로그래밍은 프로그램을 작은 독립적인 객체로 나누고, 이들을 상호작용시켜 큰 프로그램을 구축하는 개발 방법입니다. 레고 블록의 조립과 같이 필요한 기능을 수행하는 객체들을 조합하여 프로그램을 구성합니다. 객체들은 데이터와 그를 다루는 방법(메서드)을 포함하며, 이들은 상호작용하면서 프로그램이 실행됩니다. 객체지향 프로그래밍은 코드의 재사용성과 유지 보수의 편의성을 높여줍니다.
 </div>
 </details>
 
@@ -710,3 +723,227 @@ Object, String, Number, Boolean, Symbol, Date, Math, RegExp, Array, Map/Set, Wea
 답변을 적어주세요
 </div>
 </details>
+
+<br>
+
+> 타이머
+
+<details>
+<summary>타이머 함수에는 어떤 것들이 있나요?</summary>
+<div markdown="1">
+특정 함수의 실행을 원하는 시간만큼 뒤로 미루는 setTimeout, 특정 콜백을 일정한 시간 간격으로 반복 실행하도록 하는 setInterval이 있습니다. 각 타이머 취소하는 함수는 clearTimeout, clearInterval입니다.
+</div>
+</details>
+
+<details>
+<summary>이벤트가 과도하게 호출되어 성능에 문제를 일으킬 경우에 할 수 있는 어떤 일을 통해 해결할 수 있나요?</summary>
+<div markdown="1">
+짧은 시간 간격으로 연속해서 발생하는 scroll, resize, mousemove같은 이벤트에 바인딩한 이벤트 핸들러는 과도하게 호출되어 성능에 문제를 일으킬 수 있습니다.
+디바운스와 쓰로틀과 같이 연이어 발생하는 이벤트를 그룹화해서 이벤트 핸들러의 호출을 방지하는 최적화 프로그래밍 기법을 사용하면 이벤트가 과도하게 호출되는 것을 막거나 조절할 수 있습니다.
+</div>
+</details>
+
+<details>
+<summary>디바운스에 대해서 알고 있나요?</summary>
+<div markdown="1">
+디바운스는 연이어 발생하는 이벤트를 그룹화해서, 맨 처음 혹은 마지막 함수만 호출되도록 하는 프로그래밍 기법입니다.
+</div>
+</details>
+
+<details>
+<summary>쓰로틀에 대해서 알고 있나요?</summary>
+<div markdown="1">
+쓰로틀은 연이어 발생하는 이벤트를 그룹화해서 일정한 delay를 포함시켜 일정 시간동안 호출된 함수는 무시하도록 하는 프로그래밍 기법입니다.
+</div>
+</details>
+
+<br>
+
+> 비동기 프로그래밍
+
+<details>
+<summary>동기와 비동기의 차이점에 대해서 설명해줄 수 있나요?</summary>
+<div markdown="1">
+동기는 현재 실행 중인 태스트가 종료될 때까지 다음에 실행될 태스크가 대기하는 방식이고 비동기는 현재 실행 중인 태스크가 종료되지 않은 상태라 해도 다음 태스크를 곧바로 실행하는 방식입니다. 비동기 방식에는 타이머 함수, HTTP 요청, 이벤트 핸들러 등이 있습니다.
+</div>
+</details>
+
+<details>
+<summary>이벤트 루프와 태스크 큐에 대해서 알고 있나요?</summary>
+<div markdown="1">
+이벤트루프는 순차적으로 태스크 큐에 대기 중인 함수를 콜 스택으로 이동, 즉 실행시키는 역할을 합니다. 태스크 큐는 비동기 함수의 콜백 함수 또는 이벤트 핸들러가 일시적으로 보관되는 영역입니다. 태스크 큐에 일시 보관된 함수들은 비동기 처리 방식으로 동작하는 것입니다.
+</div>
+</details>
+
+<details>
+<summary>마이크로태스크 큐에 대해서 알고 있나요?</summary>
+<div markdown="1">
+답변을 적어주세요
+</div>
+</details>
+
+<details>
+<summary>태스크 큐와 마이크로태스크 큐 중 어떤 것이 먼저 실행되나요?</summary>
+<div markdown="1">
+답변을 적어주세요
+</div>
+</details>
+
+<br>
+
+> Ajax
+
+<details>
+<summary>JSON이 뭔가요?</summary>
+<div markdown="1">
+답변을 적어주세요
+</div>
+</details>
+
+<details>
+<summary>JSON이 제공하는 정적 프로토타입 메서드에 대해 몇가지 말해볼 수 있나요?</summary>
+<div markdown="1">
+답변을 적어주세요
+</div>
+</details>
+
+<details>
+<summary>XMLHttpRequest와 fetch 메서드의 차이는 무엇이라고 생각하시나요?</summary>
+<div markdown="1">
+답변을 적어주세요
+</div>
+</details>
+
+<br>
+
+> REST API
+
+<details>
+<summary>REST API가 뭔가요?</summary>
+<div markdown="1">
+REST API는 클라이언트와 서버 간의 통신을 위한 일련의 규칙과 제약을 정의한 소프트웨어 아키텍쳐 스타일입니다.
+웹 브라우저, 모바일 앱과 같은 클라이언트에서 서버에게 요청을 보내고, 서버는 요청을 처리하고 필요한 데이터를 응답으로 반환하는 방식으로 동작합니다. 이러한 통신은 주로 HTTP 프로토콜을 사용하여 이루어집니다.
+</div>
+</details>
+
+<details>
+<summary>REST API의 구성은 어떤 것이 있나요?</summary>
+<div markdown="1">
+REST API는 리소스(자원)와 리소스를 조작하기 위한 표준 HTTP 메소드(GET, POST, PUT, DELETE 등)으로 구성되어 있습니다. 각각의 리소스는 고유한 식별자(URI)를 가지며, 클라이언트는 이 식별자를 사용하여 리소스에 접근하고 조작할 수 있습니다.
+</div>
+</details>
+
+<details>
+<summary>REST API를 설계하는데 중요한 것이 있을까요?</summary>
+<div markdown="1">
+답변을 적어주세요
+</div>
+</details>
+
+<details>
+<summary>HTTP 요청 메서드에 대해서 아는대로 얘기해보세요?</summary>
+<div markdown="1">
+답변을 적어주세요
+</div>
+</details>
+
+<details>
+<summary>HTTP 상태 코드를 아는대로 말해주세요?</summary>
+<div markdown="1">
+답변을 적어주세요
+</div>
+</details>
+
+<br>
+
+> Promise
+
+<details>
+<summary>콜백이란 뭐라고 생각하나요?</summary>
+<div markdown="1">
+답변을 적어주세요
+</div>
+</details>
+
+<details>
+<summary>프로미스가 뭔가요?</summary>
+<div markdown="1">
+답변을 적어주세요
+</div>
+</details>
+
+<details>
+<summary>프로미스의 상태를 나타내는 것은 어떤 것들이 있나요?</summary>
+<div markdown="1">
+답변을 적어주세요
+</div>
+</details>
+
+<details>
+<summary>프로미스 빌트인 객체가 제공하는 정적 메서드에 대해 알고 있나요?</summary>
+<div markdown="1">
+프로미스 빌트인 객체가 제공하는 정적 메서드에는 여러 Promise 객체의 작업 성공 결과를 기다렸다가 모두 한 번에 취합하는 Promise.all 메서드, 여러 Promise 객체들을 경쟁시켜서 가장 빨리 상태가 결정된 Promise 객체를 선택하는 Promise.race 메서드, 배열 내 Promise 객체들이 settled 상태가 되기만 하면 Promise 객체를 리턴하는 Promise.allSettled 메서드 등이 있습니다. 
+</div>
+</details>
+
+<br>
+
+> 제너레이터와 async await
+
+<details>
+<summary>제너레이터란 뭔가요? 일반 함수와는 어떤 차이가 있죠?</summary>
+<div markdown="1">
+제너레이터는 코드블럭의 실행을 일시 중지(블러킹)했다가 필요한 시점에 재개할 수 있는 ES6에서 도입된 특수한 함수입니다.  
+일반 함수와의 차이점은   
+첫째, 함수 호출자에게 함수 실행의 제어권 양도가 가능한 것,  
+둘째, 함수 호출자와 함수의 상태를 주고 받을 수 있는 것,  
+호출 시 제너레이터 객체를 반환하는 것입니다.  
+</div>
+</details>
+
+<details>
+<summary>제너레이터의 구조</summary>
+<div markdown="1">
+제너레이터는 `yield` 키워드와 `next` 메서드를 통해 실행을 일시중지했다가 필요한 시점에 다시 재개할 수 있게 이루어져 있습니다. 
+`next` 메서드를 통해 제너레이터를 실행할 경우, 코드 블록 내에 `yield` 키워드 뒤에 오는 표현식의 평가 결과를 제너레이터 함수 호출자에게 result 객체 형식으로 반환합니다.
+</div>
+</details>
+
+<details>
+<summary>Promise와 async/await의 차이점</summary>
+<div markdown="1">
+답변을 적어주세요
+</div>
+</details>
+
+<br>
+
+> 에러
+
+<details>
+<summary>에러처리를 왜 해야 하나요?</summary>
+<div markdown="1">
+답변을 적어주세요
+</div>
+</details>
+
+<details>
+<summary>자바스크립트에서 에러를 처리하는 방법에는 뭐가 있을까요?</summary>
+<div markdown="1">
+답변을 적어주세요
+</div>
+</details>
+
+<br>
+
+> 모듈
+
+<details>
+<summary>모듈이 뭔가요?</summary>
+<div markdown="1">
+답변을 적어주세요
+</div>
+</details>
+
+
+
