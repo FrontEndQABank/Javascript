@@ -319,7 +319,7 @@ e.preventDefault()는 메서드는 브라우저의 기본 동작을 중단시키
 <details>
 <summary>e.stopPropagation에 대해 알고 있나요?</summary>
 <div markdown="1">
-답변을 적어주세요
+메서드는 현재 이벤트가 캡처링/버블링 단계에서 더 이상 전파되지 않도록 방지합니다. 전파를 방지해도 이벤트의 기본 동작은 실행되므로, stopPropagation()이 링크나 버튼의 클릭을 막는 것은 아닙니다. 이런 기본 동작을 방지하려면 preventDefault() 메서드를 사용해야합니다.
 </div>
 </details>
 
