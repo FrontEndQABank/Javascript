@@ -35,7 +35,13 @@
 <details>
 <summary>let 키워드는 var 키워드와 어떤 점이 다른가요?💥</summary>
 <div markdown="1">
-답변을 적어주세요
+1. let은 블록스코프를 가지고 있고 var키워드는 함수스코프를 가지고 있습니다. <br/>
+2. let은 재할당만 가능하지만 var는 재선언, 재할당이 모두 가능합니다.<br/>
+3. var는 선언과 동시에 undefined로 초기화가 되지만 let은 선언과 초기화가 분리되어 초기화가 되기전에 변수를 호출하면 ReferenceError가 발생합니다.<br>
+4. let은 변수 호이스팅이 일어나지 않는 것 처럼 동작합니다.<br/>
+5. let은 전역 객체로 접근할 수 없습니다.<br/>
+<b>[추가 TDZ]</b> <br/>
+"let" 및 "const" 키워드로 선언된 변수는 TDZ(Temporary Dead Zone)에 영향을 받습니다. TDZ는 변수가 선언되었지만 초기화되기 전까지 액세스할 수 없는 구간을 의미합니다. 따라서 선언 이전에 "let" 또는 "const" 변수를 사용하면 ReferenceError가 발생합니다. 이와는 달리 "var" 키워드로 선언된 변수나 함수 선언은 TDZ에 영향을 받지 않으므로, 선언 이전에도 참조할 수 있습니다.
 </div>
 </details>
 
