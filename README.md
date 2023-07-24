@@ -243,7 +243,8 @@ HTML 요소는 렌더링 엔진에 의해 파싱되어, DOM을 구성하는 요�
 <details>
 <summary>이벤트 핸들러를 등록하는 방식에는 어떤 것들이 있나요?</summary>
 <div markdown="1">
-답변을 적어주세요
+이벤트 헨들러를 등록하는 방식은 3가지가 있습니다.  html 태그의 속성(어트리뷰트)에 바로 표시하는 이벤트 핸들러 어트리뷰트 방식, JavaScript로 해당 DOM 객체의 이벤트(onclick) 프로퍼티에 등록하는 이벤트 핸들러 프로퍼티 방식, <br/>
+element.addEventListener('event', handler) 로 이벤트를 등록하는 addEventListener 메서드 방식이 있습니다.
 </div>
 </details>
 
