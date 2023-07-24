@@ -110,7 +110,7 @@ a변수 값을 사용할려고 가져왔더니 2진수 형태로 저장되어 �
 <details>
 <summary>명시적 타입 변환 함수를 예를 들어볼 수 있나요?</summary>
 <div markdown="1">
-답변을 적어주세요
+String, toString을 사용하여 문자열이 아닌 값을 문자열로 바꾸는 방법,  Number, parseInt를 사용해 숫자 타입으로 바꾸는 방법,  Boolen 메서드를 사용해서 불리언 타입으로 바꾸는 방법이 있습니다.
 </div>
 </details>
 
